@@ -1,0 +1,16 @@
+[Unit]
+Description=homeip - ip change monitor
+After=network.target
+
+[Service]
+Environment=NODE_ENV=production PORT=5555
+ExecStart=/usr/bin/node /home/eric/code/homeip/app.js
+Restart=on-failure
+RestartPreventExitStatus=255
+Type=simple
+User=eric
+
+[Install]
+WantedBy=multi-user.target
+Alias=homeip.service
+

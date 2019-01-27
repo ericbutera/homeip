@@ -1,0 +1,8 @@
+/*
+ * test
+ */
+.jumbotron {
+    background-image: url('home.jpg');
+    background-repeat: no-repeat;
+    opacity: 0.5;
+}
