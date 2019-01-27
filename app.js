@@ -11,6 +11,7 @@ app.use(express.static(
 ));
 app.enable('trust proxy');
 
+// current_ip will hold the ip address of the home network
 var current_ip = '';
 
 app.get('/', (req, res) => {
@@ -28,6 +29,7 @@ app.get('/redirect', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+    // grab the remote client ip address and store in current_ip
     current_ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     res.send("Updated to " + req.ip);
 });
